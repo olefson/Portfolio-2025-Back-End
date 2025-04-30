@@ -1,0 +1,125 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+enum ProcessCategory {
+  Personal
+  Professional
+  Development
+  Content
+  Other
+}
+
+enum ToolCategory {
+  AI
+  Productivity
+  Development
+  Communication
+  Design
+  Other
+}
+
+enum JobType {
+  FullTime
+  PartTime
+  Contract
+  Internship
+  Freelance
+}
+
+enum DegreeType {
+  Bachelor
+  Master
+  Certificate
+}
+
+model User {
+  id        String    @id @default(uuid())
+  email     String    @unique
+  googleId  String    @unique
+  role      Role      @default(EDITOR)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Tool {
+  id          String      @id @default(uuid())
+  name        String
+  description String
+  category    ToolCategory
+  iconUrl     String?
+  link        String?
+  status      String      // e.g., "Plan to Try", "Using", "Archived"
+  acquired    DateTime
+  createdBy   String      // Reference to User.id
+  updatedAt   DateTime    @updatedAt
+}
+
+model Process {
+  id          String          @id @default(uuid())
+  title       String
+  description String
+  steps       String[]
+  status      String          // e.g., "Active", "Archived", "Draft"
+  category    ProcessCategory
+  tools       String[]        // e.g., ["ChatGPT", "My Financial Future", "Notion"]
+  acquired    DateTime
+  createdBy   String          // Reference to User.id
+  updatedAt   DateTime        @updatedAt
+}
+
+model Project {
+  id          String    @id @default(uuid())
+  title       String
+  description String
+  imagePath   String?
+  link        String?
+  tags        String[]
+  acquired    DateTime
+  createdBy   String    // Reference to User.id
+  updatedAt   DateTime  @updatedAt
+}
+
+model Job {
+  id              String    @id @default(uuid())
+  title           String
+  company         String
+  location        String
+  type            JobType
+  startDate       DateTime
+  endDate         DateTime?  // null means current position
+  description     String
+  responsibilities String[]
+  technologies    String[]   // tech stack used
+  achievements    String[]   // key accomplishments
+  createdBy       String    // Reference to User.id
+  updatedAt       DateTime  @updatedAt
+}
+
+model Education {
+  id              String     @id @default(uuid())
+  institution     String
+  degree          String
+  degreeType      DegreeType
+  field           String
+  location        String
+  startDate       DateTime
+  endDate         DateTime?  // null means ongoing
+  gpa             Float?
+  courses         String[]   // key relevant courses
+  createdBy       String     // Reference to User.id
+  updatedAt       DateTime   @updatedAt
+} 
