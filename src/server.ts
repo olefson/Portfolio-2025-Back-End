@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
-import { PrismaClient } from '@prisma/client';
+import session from 'express-session';
+import { PrismaClient, ToolCategory, ProcessCategory } from '@prisma/client';
 import { validate } from './middleware/validate';
 import { 
   toolSchema, 
@@ -9,6 +10,8 @@ import {
   processSchema
 } from './validation/schemas';
 import { upload, getPublicUrl } from './utils/fileUpload';
+import authRoutes from './routes/auth.routes';
+import passport from './services/auth.service';
 
 // Import repositories and services
 import { ToolRepository } from './data/repositories/ToolRepository';
@@ -33,17 +36,38 @@ const toolService = new ToolService(toolRepository);
 const projectService = new ProjectService(projectRepository);
 const processService = new ProcessService(processRepository);
 
-app.use(cors());
+// Session configuration
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'your-secret-key',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    }
+}));
+
+// Initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(cors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    credentials: true
+}));
 app.use(express.json());
 
 // Serve static files from the uploads directory
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
+// Authentication routes
+app.use('/auth', authRoutes);
+
 // Tools endpoints
 app.get('/api/tools', async (req, res) => {
   try {
     const filters = {
-      category: req.query.category as string,
+      category: req.query.category as ToolCategory | undefined,
       status: req.query.status as string,
       search: req.query.search as string
     };
@@ -162,7 +186,7 @@ app.delete('/api/projects/:id', async (req, res) => {
 app.get('/api/processes', async (req, res) => {
   try {
     const filters = {
-      category: req.query.category as string,
+      category: req.query.category as ProcessCategory | undefined,
       status: req.query.status as string,
       search: req.query.search as string
     };
