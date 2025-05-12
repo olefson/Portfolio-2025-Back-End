@@ -66,6 +66,7 @@ model Tool {
   acquired    DateTime
   createdBy   String      // Reference to User.id
   updatedAt   DateTime    @updatedAt
+  useCases    Json?       // Categorized use cases
 }
 
 model Process {

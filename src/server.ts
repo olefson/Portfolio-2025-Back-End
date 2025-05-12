@@ -12,6 +12,8 @@ import {
 import { upload, getPublicUrl } from './utils/fileUpload';
 import authRoutes from './routes/auth.routes';
 import passport from './services/auth.service';
+import { isAuthenticated } from './services/auth.service';
+import toolsRoutes from './routes/tools.routes';
 
 // Import repositories and services
 import { ToolRepository } from './data/repositories/ToolRepository';
@@ -63,59 +65,16 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 // Authentication routes
 app.use('/auth', authRoutes);
 
-// Tools endpoints
-app.get('/api/tools', async (req, res) => {
-  try {
-    const filters = {
-      category: req.query.category as ToolCategory | undefined,
-      status: req.query.status as string,
-      search: req.query.search as string
-    };
-    const tools = await toolService.findAll(filters);
-    res.json(tools);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch tools' });
-  }
+// Test log endpoint
+app.get('/test-log', (req, res) => {
+  console.log('Test log endpoint hit!');
+  res.json({ ok: true });
 });
 
-app.get('/api/tools/:id', async (req, res) => {
-  try {
-    const tool = await toolService.findById(req.params.id);
-    if (!tool) {
-      return res.status(404).json({ error: 'Tool not found' });
-    }
-    res.json(tool);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch tool' });
-  }
-});
+console.log('Server file loaded!')
 
-app.post('/api/tools', validate(toolSchema), async (req, res) => {
-  try {
-    const tool = await toolService.create(req.body);
-    res.status(201).json(tool);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to create tool' });
-  }
-});
-
-app.put('/api/tools/:id', validate(toolSchema), async (req, res) => {
-  try {
-    const tool = await toolService.update(req.params.id, req.body);
-    res.json(tool);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to update tool' });
-  }
-});
-
-app.delete('/api/tools/:id', async (req, res) => {
-  try {
-    await toolService.delete(req.params.id);
-    res.status(204).send();
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to delete tool' });
-  }
-});
+// Register the new tools router
+app.use('/api/tools', toolsRoutes);
 
 // Projects endpoints
 app.get('/api/projects', async (req, res) => {
@@ -241,6 +200,7 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
+console.log('App is about to listen!')
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 }); 
