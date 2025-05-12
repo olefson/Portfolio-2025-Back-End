@@ -15,6 +15,10 @@ export const toolSchema = z.object({
     invalid_type_error: 'Status must be Plan to Try, Using, or Archived'
   }),
   acquired: z.string().datetime('Invalid date format'),
+  useCases: z.array(z.object({
+    title: z.string().min(1, 'Use case title is required'),
+    items: z.array(z.string().min(1, 'Use case item is required'))
+  })).optional(),
 });
 
 export const projectSchema = z.object({
