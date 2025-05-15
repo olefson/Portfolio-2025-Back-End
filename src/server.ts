@@ -28,6 +28,22 @@ const prisma = new PrismaClient();
 const app = express();
 const port = process.env.PORT || 3001;
 
+// Add logging middleware
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+  next();
+});
+
+// Configure middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// CORS configuration
+app.use(cors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    credentials: true
+}));
+
 // Initialize repositories
 const toolRepository = new ToolRepository(prisma);
 const projectRepository = new ProjectRepository(prisma);
@@ -53,12 +69,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-    credentials: true
-}));
-app.use(express.json());
-
 // Serve static files from the uploads directory
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
@@ -69,6 +79,18 @@ app.use('/auth', authRoutes);
 app.get('/test-log', (req, res) => {
   console.log('Test log endpoint hit!');
   res.json({ ok: true });
+});
+
+// Add this before any other routes
+app.post('/test', (req, res) => {
+  console.log('Test endpoint hit!');
+  console.log('Headers:', req.headers);
+  console.log('Body:', req.body);
+  res.json({ 
+    message: 'Test successful',
+    receivedBody: req.body,
+    receivedHeaders: req.headers
+  });
 });
 
 console.log('Server file loaded!')
@@ -152,7 +174,8 @@ app.get('/api/processes', async (req, res) => {
     const processes = await processService.findAll(filters);
     res.json(processes);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch processes' });
+    console.error('Error fetching processes:', error);
+    res.status(500).json({ error: 'Failed to fetch processes', details: error instanceof Error ? error.message : error });
   }
 });
 
@@ -164,16 +187,24 @@ app.get('/api/processes/:id', async (req, res) => {
     }
     res.json(process);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch process' });
+    console.error('Error fetching process:', error);
+    res.status(500).json({ error: 'Failed to fetch process', details: error instanceof Error ? error.message : error });
   }
 });
 
 app.post('/api/processes', validate(processSchema), async (req, res) => {
   try {
+    console.log('Process creation endpoint received request:');
+    console.log('Headers:', JSON.stringify(req.headers, null, 2));
+    console.log('Body:', JSON.stringify(req.body, null, 2));
+    console.log('Raw body:', req.body);
+    
     const process = await processService.create(req.body);
+    console.log('Successfully created process:', process);
     res.status(201).json(process);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to create process' });
+    console.error('Error creating process:', error);
+    res.status(500).json({ error: 'Failed to create process', details: error instanceof Error ? error.message : error });
   }
 });
 
@@ -182,7 +213,8 @@ app.put('/api/processes/:id', validate(processSchema), async (req, res) => {
     const process = await processService.update(req.params.id, req.body);
     res.json(process);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to update process' });
+    console.error('Error updating process:', error);
+    res.status(500).json({ error: 'Failed to update process', details: error instanceof Error ? error.message : error });
   }
 });
 
@@ -191,7 +223,8 @@ app.delete('/api/processes/:id', async (req, res) => {
     await processService.delete(req.params.id);
     res.status(204).send();
   } catch (error) {
-    res.status(500).json({ error: 'Failed to delete process' });
+    console.error('Error deleting process:', error);
+    res.status(500).json({ error: 'Failed to delete process', details: error instanceof Error ? error.message : error });
   }
 });
 

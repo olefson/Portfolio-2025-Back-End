@@ -20,9 +20,12 @@ export abstract class BaseRepository<T> {
   }
 
   async create(data: any): Promise<T> {
-    return this.model.create({
+    console.log('BaseRepository.create called with data:', data);
+    const result = await this.model.create({
       data
     });
+    console.log('BaseRepository.create result:', result);
+    return result;
   }
 
   async update(id: string, data: any): Promise<T> {
