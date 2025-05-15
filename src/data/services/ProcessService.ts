@@ -17,7 +17,10 @@ export class ProcessService extends BaseService<Process> {
   }
 
   async create(data: CreateProcessDto): Promise<Process> {
-    return super.create(data);
+    console.log('ProcessService.create called with data:', data);
+    const result = await super.create(data);
+    console.log('ProcessService.create result:', result);
+    return result;
   }
 
   async update(id: string, data: UpdateProcessDto): Promise<Process> {
