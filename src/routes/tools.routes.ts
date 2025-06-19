@@ -20,11 +20,18 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const data = req.body;
+    const {
+      name, description, category, iconUrl, link, status, useCases
+    } = data;
     const tool = await prisma.tool.create({
       data: {
-        ...data,
-        acquired: new Date(data.acquired),
-        updatedAt: new Date()
+        name,
+        description,
+        category,
+        iconUrl,
+        link,
+        status,
+        useCases
       }
     });
     res.json(tool);
