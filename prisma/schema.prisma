@@ -63,9 +63,6 @@ model Tool {
   iconUrl     String?
   link        String?
   status      String      // e.g., "Plan to Try", "Using", "Archived"
-  acquired    DateTime
-  createdBy   String      // Reference to User.id
-  updatedAt   DateTime    @updatedAt
   useCases    Json?       // Categorized use cases
 }
 

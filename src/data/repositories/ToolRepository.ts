@@ -28,7 +28,6 @@ export class ToolRepository extends BaseRepository<Tool> {
 
     return this.prisma.tool.findMany({
       where,
-      orderBy: { acquired: 'desc' }
     });
   }
 
