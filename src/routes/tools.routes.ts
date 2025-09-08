@@ -21,15 +21,19 @@ router.post('/', async (req, res) => {
   try {
     const data = req.body;
     const {
-      name, description, category, iconUrl, link, status, useCases
+      name, description, category, iconUrl, link, status, useCases, url
     } = data;
+    
+    // Map url to link if url is provided but link is not
+    const finalLink = link || url || null;
+    
     const tool = await prisma.tool.create({
       data: {
         name,
         description,
         category,
         iconUrl,
-        link,
+        link: finalLink,
         status,
         useCases
       }
@@ -43,12 +47,32 @@ router.post('/', async (req, res) => {
 
 // Update a tool (including useCases)
 router.put('/:id', async (req, res) => {
-  const data = req.body;
-  const tool = await prisma.tool.update({
-    where: { id: req.params.id },
-    data,
-  });
-  res.json(tool);
+  try {
+    const data = req.body;
+    const {
+      name, description, category, iconUrl, link, status, useCases, url
+    } = data;
+    
+    // Map url to link if url is provided but link is not
+    const finalLink = link || url || null;
+    
+    const tool = await prisma.tool.update({
+      where: { id: req.params.id },
+      data: {
+        name,
+        description,
+        category,
+        iconUrl,
+        link: finalLink,
+        status,
+        useCases
+      },
+    });
+    res.json(tool);
+  } catch (error) {
+    console.error('Error updating tool:', error);
+    res.status(500).json({ error: 'Failed to update tool', details: error });
+  }
 });
 
 // Delete a tool

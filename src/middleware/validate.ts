@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-import { AnyZodObject, ZodError } from 'zod';
+import { z, ZodError } from 'zod';
 
-export const validate = (schema: AnyZodObject) => 
+export const validate = (schema: z.ZodSchema) => 
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       console.log('=== Validation Middleware ===');
@@ -16,11 +16,11 @@ export const validate = (schema: AnyZodObject) =>
       console.error('=== Validation Error ===');
       console.error('Error details:', error);
       if (error instanceof ZodError) {
-        console.error('ZodError details:', JSON.stringify(error.errors, null, 2));
+        console.error('ZodError details:', JSON.stringify(error.issues, null, 2));
         return res.status(400).json({
           status: 'error',
           message: 'Validation failed',
-          errors: error.errors.map(err => ({
+          errors: error.issues.map(err => ({
             path: err.path.join('.'),
             message: err.message,
           })),
