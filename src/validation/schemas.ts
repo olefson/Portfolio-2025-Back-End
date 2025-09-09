@@ -21,7 +21,7 @@ export const projectSchema = z.object({
   imagePath: z.string().optional(),
   link: z.string().url('Invalid URL').optional(),
   tags: z.array(z.string().min(1)).min(1, 'At least one tag is required'),
-  acquired: z.string().datetime('Invalid date format'),
+  acquired: z.string().datetime('Invalid date format').optional(),
 });
 
 export const processSchema = z.object({

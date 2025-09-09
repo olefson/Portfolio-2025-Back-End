@@ -147,7 +147,7 @@ app.post('/api/projects', upload.single('image'), async (req, res) => {
       ...req.body,
       tags: JSON.parse(req.body.tags), // Convert tags string to array
       imagePath: req.file ? req.file.filename : null,
-      acquired: new Date(req.body.acquired) // Convert string to Date
+      acquired: req.body.acquired ? new Date(req.body.acquired) : null // Make acquired optional
     };
     
     const project = await projectService.create(projectData);
@@ -164,7 +164,7 @@ app.put('/api/projects/:id', upload.single('image'), async (req, res) => {
       ...req.body,
       tags: JSON.parse(req.body.tags), // Convert tags string to array
       imagePath: req.file ? req.file.filename : req.body.imagePath,
-      acquired: new Date(req.body.acquired) // Convert string to Date
+      acquired: req.body.acquired ? new Date(req.body.acquired) : null // Make acquired optional
     };
     
     const project = await projectService.update(req.params.id, projectData);
