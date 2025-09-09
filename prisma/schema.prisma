@@ -45,10 +45,10 @@ model Project {
   title       String
   description String
   imagePath   String?
-  link        String?
+  githubUrl   String?
+  liveUrl     String?
   tags        String[]
   acquired    DateTime?
-  createdBy   String
   updatedAt   DateTime  @updatedAt
 }
 

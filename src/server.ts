@@ -39,6 +39,9 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Serve static files from uploads directory
+app.use('/uploads', express.static('uploads'));
+
 // CORS configuration
 app.use(cors({
     origin: [
@@ -118,6 +121,20 @@ console.log('Server file loaded!')
 // Register the new tools router
 app.use('/api/tools', toolsRoutes);
 
+// Image upload endpoint
+app.post('/api/upload', upload.single('image'), (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No file uploaded' });
+    }
+    
+    const imageUrl = `/uploads/${req.file.filename}`;
+    res.json({ url: imageUrl });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to upload image' });
+  }
+});
+
 // Projects endpoints
 app.get('/api/projects', async (req, res) => {
   try {
@@ -140,20 +157,38 @@ app.get('/api/projects/:id', async (req, res) => {
   }
 });
 
-// Handle project creation with image upload
-app.post('/api/projects', upload.single('image'), async (req, res) => {
+// Handle project creation with image upload (multipart)
+app.post('/api/projects/upload', upload.single('image'), async (req, res) => {
   try {
     const projectData = {
       ...req.body,
       tags: JSON.parse(req.body.tags), // Convert tags string to array
-      imagePath: req.file ? req.file.filename : null,
+      imagePath: req.file ? `/uploads/${req.file.filename}` : null,
       acquired: req.body.acquired ? new Date(req.body.acquired) : null // Make acquired optional
     };
     
     const project = await projectService.create(projectData);
     res.status(201).json(project);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to create project' });
+    console.error('Error creating project:', error);
+    res.status(500).json({ error: 'Failed to create project', details: error instanceof Error ? error.message : 'Unknown error' });
+  }
+});
+
+// Handle project creation with existing image (JSON)
+app.post('/api/projects', async (req, res) => {
+  try {
+    const projectData = {
+      ...req.body,
+      tags: req.body.tags, // Already an array from frontend
+      acquired: req.body.acquired ? new Date(req.body.acquired) : null // Make acquired optional
+    };
+    
+    const project = await projectService.create(projectData);
+    res.status(201).json(project);
+  } catch (error) {
+    console.error('Error creating project:', error);
+    res.status(500).json({ error: 'Failed to create project', details: error instanceof Error ? error.message : 'Unknown error' });
   }
 });
 
@@ -163,14 +198,15 @@ app.put('/api/projects/:id', upload.single('image'), async (req, res) => {
     const projectData = {
       ...req.body,
       tags: JSON.parse(req.body.tags), // Convert tags string to array
-      imagePath: req.file ? req.file.filename : req.body.imagePath,
+      imagePath: req.file ? `/uploads/${req.file.filename}` : req.body.imagePath,
       acquired: req.body.acquired ? new Date(req.body.acquired) : null // Make acquired optional
     };
     
     const project = await projectService.update(req.params.id, projectData);
     res.json(project);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to update project' });
+    console.error('Error updating project:', error);
+    res.status(500).json({ error: 'Failed to update project', details: error instanceof Error ? error.message : 'Unknown error' });
   }
 });
 
