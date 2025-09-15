@@ -48,7 +48,6 @@ model Project {
   githubUrl   String?
   liveUrl     String?
   tags        String[]
-  acquired    DateTime?
   updatedAt   DateTime  @updatedAt
 }
 
