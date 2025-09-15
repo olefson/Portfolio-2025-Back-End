@@ -28,7 +28,7 @@ export class ProcessRepository extends BaseRepository<Process> {
 
     return this.prisma.process.findMany({
       where,
-      orderBy: { acquired: 'desc' }
+      orderBy: { title: 'asc' }
     });
   }
 

@@ -35,9 +35,6 @@ model Process {
   status      String
   category    ProcessCategory
   tools       String[]
-  acquired    DateTime
-  createdBy   String
-  updatedAt   DateTime        @updatedAt
 }
 
 model Project {

@@ -31,8 +31,6 @@ export const processSchema = z.object({
   status: z.enum(['Active', 'Archived', 'Draft'] as const),
   category: z.nativeEnum(ProcessCategory),
   tools: z.array(z.string().min(1)).min(1, 'At least one tool is required'),
-  acquired: z.string().datetime('Invalid date format'),
-  createdBy: z.string().min(1, 'Created by is required'),
 });
 
 export const jobSchema = z.object({
