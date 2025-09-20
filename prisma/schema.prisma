@@ -45,7 +45,6 @@ model Project {
   githubUrl   String?
   liveUrl     String?
   tags        String[]
-  updatedAt   DateTime  @updatedAt
 }
 
 model Job {
