@@ -162,9 +162,9 @@ app.post('/api/projects/upload', upload.single('image'), async (req, res) => {
   try {
     const projectData = {
       ...req.body,
-      tags: JSON.parse(req.body.tags), // Convert tags string to array
+      tags: Array.isArray(req.body.tags) ? req.body.tags : JSON.parse(req.body.tags), // Handle both array and string
       imagePath: req.file ? `/uploads/${req.file.filename}` : null,
-      acquired: req.body.acquired ? new Date(req.body.acquired) : null // Make acquired optional
+      toolsUsed: Array.isArray(req.body.toolsUsed) ? req.body.toolsUsed : (req.body.toolsUsed ? JSON.parse(req.body.toolsUsed) : [])
     };
     
     const project = await projectService.create(projectData);
@@ -180,8 +180,8 @@ app.post('/api/projects', async (req, res) => {
   try {
     const projectData = {
       ...req.body,
-      tags: req.body.tags, // Already an array from frontend
-      acquired: req.body.acquired ? new Date(req.body.acquired) : null // Make acquired optional
+      tags: Array.isArray(req.body.tags) ? req.body.tags : (req.body.tags || []), // Handle both array and string
+      toolsUsed: Array.isArray(req.body.toolsUsed) ? req.body.toolsUsed : (req.body.toolsUsed || [])
     };
     
     const project = await projectService.create(projectData);
@@ -197,9 +197,9 @@ app.put('/api/projects/:id', upload.single('image'), async (req, res) => {
   try {
     const projectData = {
       ...req.body,
-      tags: JSON.parse(req.body.tags), // Convert tags string to array
+      tags: Array.isArray(req.body.tags) ? req.body.tags : JSON.parse(req.body.tags), // Handle both array and string
       imagePath: req.file ? `/uploads/${req.file.filename}` : req.body.imagePath,
-      acquired: req.body.acquired ? new Date(req.body.acquired) : null // Make acquired optional
+      toolsUsed: Array.isArray(req.body.toolsUsed) ? req.body.toolsUsed : (req.body.toolsUsed ? JSON.parse(req.body.toolsUsed) : [])
     };
     
     const project = await projectService.update(req.params.id, projectData);

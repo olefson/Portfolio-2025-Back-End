@@ -45,6 +45,7 @@ model Project {
   githubUrl   String?
   liveUrl     String?
   tags        String[]
+  toolsUsed   String[]
 }
 
 model Job {

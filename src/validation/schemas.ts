@@ -19,9 +19,10 @@ export const projectSchema = z.object({
   title: z.string().min(1, 'Title is required').max(100),
   description: z.string().min(1, 'Description is required').max(1000),
   imagePath: z.string().optional(),
-  link: z.string().url('Invalid URL').optional(),
+  githubUrl: z.string().url('Invalid URL').optional(),
+  liveUrl: z.string().url('Invalid URL').optional(),
   tags: z.array(z.string().min(1)).min(1, 'At least one tag is required'),
-  acquired: z.string().datetime('Invalid date format').optional(),
+  toolsUsed: z.array(z.string().min(1)).optional(),
 });
 
 export const processSchema = z.object({
