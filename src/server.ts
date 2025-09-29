@@ -39,8 +39,24 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files from uploads directory
-app.use('/uploads', express.static('uploads'));
+// Serve static files from uploads directory with proper headers
+app.use('/uploads', express.static(path.join(__dirname, '../uploads'), {
+  setHeaders: (res, path) => {
+    // Set proper MIME types for different file types
+    if (path.endsWith('.gif')) {
+      res.setHeader('Content-Type', 'image/gif');
+    } else if (path.endsWith('.png')) {
+      res.setHeader('Content-Type', 'image/png');
+    } else if (path.endsWith('.jpg') || path.endsWith('.jpeg')) {
+      res.setHeader('Content-Type', 'image/jpeg');
+    } else if (path.endsWith('.webp')) {
+      res.setHeader('Content-Type', 'image/webp');
+    }
+    // Enable CORS for static files
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET');
+  }
+}));
 
 // CORS configuration
 app.use(cors({
@@ -92,8 +108,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Serve static files from the uploads directory
-app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // Authentication routes
 app.use('/auth', authRoutes);
@@ -162,9 +176,8 @@ app.post('/api/projects/upload', upload.single('image'), async (req, res) => {
   try {
     const projectData = {
       ...req.body,
-      tags: Array.isArray(req.body.tags) ? req.body.tags : JSON.parse(req.body.tags), // Handle both array and string
-      imagePath: req.file ? `/uploads/${req.file.filename}` : null,
-      toolsUsed: Array.isArray(req.body.toolsUsed) ? req.body.toolsUsed : (req.body.toolsUsed ? JSON.parse(req.body.toolsUsed) : [])
+      tags: JSON.parse(req.body.tags), // Convert tags string to array
+      imagePath: req.file ? `/uploads/${req.file.filename}` : null
     };
     
     const project = await projectService.create(projectData);
@@ -180,8 +193,7 @@ app.post('/api/projects', async (req, res) => {
   try {
     const projectData = {
       ...req.body,
-      tags: Array.isArray(req.body.tags) ? req.body.tags : (req.body.tags || []), // Handle both array and string
-      toolsUsed: Array.isArray(req.body.toolsUsed) ? req.body.toolsUsed : (req.body.toolsUsed || [])
+      tags: req.body.tags // Already an array from frontend
     };
     
     const project = await projectService.create(projectData);
@@ -197,9 +209,8 @@ app.put('/api/projects/:id', upload.single('image'), async (req, res) => {
   try {
     const projectData = {
       ...req.body,
-      tags: Array.isArray(req.body.tags) ? req.body.tags : JSON.parse(req.body.tags), // Handle both array and string
-      imagePath: req.file ? `/uploads/${req.file.filename}` : req.body.imagePath,
-      toolsUsed: Array.isArray(req.body.toolsUsed) ? req.body.toolsUsed : (req.body.toolsUsed ? JSON.parse(req.body.toolsUsed) : [])
+      tags: req.body.tags, // Already an array from frontend
+      imagePath: req.file ? `/uploads/${req.file.filename}` : req.body.imagePath
     };
     
     const project = await projectService.update(req.params.id, projectData);

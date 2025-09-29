@@ -14,4 +14,11 @@ export class ProjectRepository extends BaseRepository<Project> {
   async update(id: string, data: UpdateProjectDto): Promise<Project> {
     return super.update(id, data);
   }
+
+  async getToolsByIds(toolIds: string[]): Promise<{ id: string; name: string }[]> {
+    return this.prisma.tool.findMany({
+      where: { id: { in: toolIds } },
+      select: { id: true, name: true }
+    });
+  }
 } 
