@@ -7,14 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
-  googleId  String   @unique
-  role      Role     @default(EDITOR)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
 
 model Tool {
   id          String       @id @default(uuid())
@@ -46,6 +38,7 @@ model Project {
   liveUrl     String?
   tags        String[]
   toolsUsed   String[]
+  date        DateTime?
 }
 
 model Job {
@@ -79,10 +72,6 @@ model Education {
   updatedAt   DateTime   @updatedAt
 }
 
-enum Role {
-  ADMIN
-  EDITOR
-}
 
 enum ProcessCategory {
   Personal

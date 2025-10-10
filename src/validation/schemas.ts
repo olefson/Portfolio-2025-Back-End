@@ -19,10 +19,23 @@ export const projectSchema = z.object({
   title: z.string().min(1, 'Title is required').max(100),
   description: z.string().min(1, 'Description is required').max(1000),
   imagePath: z.string().optional(),
-  githubUrl: z.string().url('Invalid URL').optional(),
-  liveUrl: z.string().url('Invalid URL').optional(),
+  githubUrl: z.string().refine((val) => val === '' || z.string().url().safeParse(val).success, {
+    message: 'Invalid URL'
+  }).optional(),
+  liveUrl: z.string().refine((val) => val === '' || z.string().url().safeParse(val).success, {
+    message: 'Invalid URL'
+  }).optional(),
   tags: z.array(z.string().min(1)).min(1, 'At least one tag is required'),
   toolsUsed: z.array(z.string().min(1)).optional(),
+  date: z.string().refine((val) => {
+    if (val === '') return true;
+    // Accept YYYY-MM-DD format (HTML date input) or full datetime
+    const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+    const datetimeRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?$/;
+    return dateRegex.test(val) || datetimeRegex.test(val) || z.string().datetime().safeParse(val).success;
+  }, {
+    message: 'Invalid date format. Expected YYYY-MM-DD or ISO datetime format'
+  }).optional(),
 });
 
 export const processSchema = z.object({

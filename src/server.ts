@@ -11,9 +11,6 @@ import {
   processSchema
 } from './validation/schemas';
 import { upload, getPublicUrl } from './utils/fileUpload';
-import authRoutes from './routes/auth.routes';
-import passport from './services/auth.service';
-import { isAuthenticated } from './services/auth.service';
 import toolsRoutes from './routes/tools.routes';
 
 // Import repositories and services
@@ -93,24 +90,6 @@ const toolService = new ToolService(toolRepository);
 const projectService = new ProjectService(projectRepository);
 const processService = new ProcessService(processRepository);
 
-// Session configuration
-app.use(session({
-    secret: process.env.SESSION_SECRET || 'your-secret-key',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        secure: process.env.NODE_ENV === 'production',
-        maxAge: 24 * 60 * 60 * 1000 // 24 hours
-    }
-}));
-
-// Initialize passport
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-// Authentication routes
-app.use('/auth', authRoutes);
 
 // Test log endpoint
 app.get('/test-log', (req, res) => {
@@ -172,12 +151,14 @@ app.get('/api/projects/:id', async (req, res) => {
 });
 
 // Handle project creation with image upload (multipart)
-app.post('/api/projects/upload', upload.single('image'), async (req, res) => {
+app.post('/api/projects/upload', upload.single('image'), validate(projectSchema), async (req, res) => {
   try {
     const projectData = {
       ...req.body,
       tags: JSON.parse(req.body.tags), // Convert tags string to array
-      imagePath: req.file ? `/uploads/${req.file.filename}` : null
+      imagePath: req.file ? `/uploads/${req.file.filename}` : null,
+      // Convert YYYY-MM-DD format to ISO datetime for Prisma
+      date: req.body.date ? new Date(req.body.date + 'T00:00:00.000Z').toISOString() : undefined
     };
     
     const project = await projectService.create(projectData);
@@ -189,11 +170,13 @@ app.post('/api/projects/upload', upload.single('image'), async (req, res) => {
 });
 
 // Handle project creation with existing image (JSON)
-app.post('/api/projects', async (req, res) => {
+app.post('/api/projects', validate(projectSchema), async (req, res) => {
   try {
     const projectData = {
       ...req.body,
-      tags: req.body.tags // Already an array from frontend
+      tags: req.body.tags, // Already an array from frontend
+      // Convert YYYY-MM-DD format to ISO datetime for Prisma
+      date: req.body.date ? new Date(req.body.date + 'T00:00:00.000Z').toISOString() : undefined
     };
     
     const project = await projectService.create(projectData);
@@ -205,12 +188,14 @@ app.post('/api/projects', async (req, res) => {
 });
 
 // Handle project update with image upload
-app.put('/api/projects/:id', upload.single('image'), async (req, res) => {
+app.put('/api/projects/:id', upload.single('image'), validate(projectSchema), async (req, res) => {
   try {
     const projectData = {
       ...req.body,
       tags: req.body.tags, // Already an array from frontend
-      imagePath: req.file ? `/uploads/${req.file.filename}` : req.body.imagePath
+      imagePath: req.file ? `/uploads/${req.file.filename}` : req.body.imagePath,
+      // Convert YYYY-MM-DD format to ISO datetime for Prisma
+      date: req.body.date ? new Date(req.body.date + 'T00:00:00.000Z').toISOString() : undefined
     };
     
     const project = await projectService.update(req.params.id, projectData);
