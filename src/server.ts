@@ -138,6 +138,50 @@ app.get('/api/projects', async (req, res) => {
   }
 });
 
+// Featured projects endpoints (must come before /:id route)
+app.get('/api/projects/featured', async (req, res) => {
+  try {
+    const featuredProjects = await prisma.project.findMany({
+      where: { featured: true },
+      orderBy: { date: 'desc' },
+      take: 2
+    });
+    res.json(featuredProjects);
+  } catch (error) {
+    console.error('Error fetching featured projects:', error);
+    res.status(500).json({ error: 'Failed to fetch featured projects' });
+  }
+});
+
+app.post('/api/projects/featured', async (req, res) => {
+  try {
+    const { featuredProjectIds } = req.body;
+    
+    if (!Array.isArray(featuredProjectIds) || featuredProjectIds.length > 2) {
+      return res.status(400).json({ error: 'Must provide an array of 1-2 project IDs' });
+    }
+    
+    // First, unfeature all projects
+    await prisma.project.updateMany({
+      where: { featured: true },
+      data: { featured: false }
+    });
+    
+    // Then feature the selected ones
+    if (featuredProjectIds.length > 0) {
+      await prisma.project.updateMany({
+        where: { id: { in: featuredProjectIds } },
+        data: { featured: true }
+      });
+    }
+    
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Error updating featured projects:', error);
+    res.status(500).json({ error: 'Failed to update featured projects' });
+  }
+});
+
 app.get('/api/projects/:id', async (req, res) => {
   try {
     const project = await projectService.findById(req.params.id);
@@ -214,6 +258,7 @@ app.delete('/api/projects/:id', async (req, res) => {
     res.status(500).json({ error: 'Failed to delete project' });
   }
 });
+
 
 // Processes endpoints
 app.get('/api/processes', async (req, res) => {
