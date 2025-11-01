@@ -38,6 +38,18 @@ export const projectSchema = z.object({
   }).optional(),
 });
 
+// Schema for partial updates (PATCH-style) - all fields optional but validated if present
+export const projectUpdateSchema = projectSchema.partial().refine((data) => {
+  // If tags are provided, they must have at least one element
+  if (data.tags !== undefined && data.tags.length === 0) {
+    return false;
+  }
+  return true;
+}, {
+  message: 'If tags are provided, at least one tag is required',
+  path: ['tags']
+});
+
 export const processSchema = z.object({
   title: z.string().min(1, 'Title is required').max(100),
   description: z.string().min(1, 'Description is required').max(1000),

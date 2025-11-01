@@ -8,6 +8,7 @@ import { validate } from './middleware/validate';
 import { 
   toolSchema, 
   projectSchema, 
+  projectUpdateSchema,
   processSchema
 } from './validation/schemas';
 import { upload, getPublicUrl } from './utils/fileUpload';
@@ -202,7 +203,20 @@ app.post('/api/projects/upload', upload.single('image'), validate(projectSchema)
       tags: JSON.parse(req.body.tags), // Convert tags string to array
       imagePath: req.file ? `/uploads/${req.file.filename}` : null,
       // Convert YYYY-MM-DD format to ISO datetime for Prisma
-      date: req.body.date ? new Date(req.body.date + 'T00:00:00.000Z').toISOString() : undefined
+      date: req.body.date ? (() => {
+        try {
+          const dateStr = req.body.date
+          // If it's already an ISO string, use it directly
+          if (dateStr.includes('T')) {
+            return new Date(dateStr).toISOString()
+          }
+          // Otherwise, convert YYYY-MM-DD to ISO
+          return new Date(dateStr + 'T00:00:00.000Z').toISOString()
+        } catch (error) {
+          console.error('Invalid date format:', req.body.date)
+          return undefined
+        }
+      })() : undefined
     };
     
     const project = await projectService.create(projectData);
@@ -220,7 +234,20 @@ app.post('/api/projects', validate(projectSchema), async (req, res) => {
       ...req.body,
       tags: req.body.tags, // Already an array from frontend
       // Convert YYYY-MM-DD format to ISO datetime for Prisma
-      date: req.body.date ? new Date(req.body.date + 'T00:00:00.000Z').toISOString() : undefined
+      date: req.body.date ? (() => {
+        try {
+          const dateStr = req.body.date
+          // If it's already an ISO string, use it directly
+          if (dateStr.includes('T')) {
+            return new Date(dateStr).toISOString()
+          }
+          // Otherwise, convert YYYY-MM-DD to ISO
+          return new Date(dateStr + 'T00:00:00.000Z').toISOString()
+        } catch (error) {
+          console.error('Invalid date format:', req.body.date)
+          return undefined
+        }
+      })() : undefined
     };
     
     const project = await projectService.create(projectData);
@@ -232,14 +259,27 @@ app.post('/api/projects', validate(projectSchema), async (req, res) => {
 });
 
 // Handle project update with image upload
-app.put('/api/projects/:id', upload.single('image'), validate(projectSchema), async (req, res) => {
+app.put('/api/projects/:id', upload.single('image'), validate(projectUpdateSchema), async (req, res) => {
   try {
     const projectData = {
       ...req.body,
       tags: req.body.tags, // Already an array from frontend
       imagePath: req.file ? `/uploads/${req.file.filename}` : req.body.imagePath,
       // Convert YYYY-MM-DD format to ISO datetime for Prisma
-      date: req.body.date ? new Date(req.body.date + 'T00:00:00.000Z').toISOString() : undefined
+      date: req.body.date ? (() => {
+        try {
+          const dateStr = req.body.date
+          // If it's already an ISO string, use it directly
+          if (dateStr.includes('T')) {
+            return new Date(dateStr).toISOString()
+          }
+          // Otherwise, convert YYYY-MM-DD to ISO
+          return new Date(dateStr + 'T00:00:00.000Z').toISOString()
+        } catch (error) {
+          console.error('Invalid date format:', req.body.date)
+          return undefined
+        }
+      })() : undefined
     };
     
     const project = await projectService.update(req.params.id, projectData);
