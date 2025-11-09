@@ -78,7 +78,7 @@ enum ProcessCategory {
   Personal
   Professional
   Development
-  Content
+  Academic
   Other
 }
 
