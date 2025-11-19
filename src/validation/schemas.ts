@@ -65,12 +65,11 @@ export const jobSchema = z.object({
   location: z.string().min(1, 'Location is required').max(100),
   type: z.nativeEnum(JobType),
   startDate: z.string().datetime('Invalid start date'),
-  endDate: z.string().datetime('Invalid end date').optional(),
+  endDate: z.string().datetime('Invalid end date').optional().nullable(),
   description: z.string().min(1, 'Description is required').max(2000),
   responsibilities: z.array(z.string().min(1)).min(1, 'At least one responsibility is required'),
   technologies: z.array(z.string().min(1)).min(1, 'At least one technology is required'),
   achievements: z.array(z.string().min(1)).optional(),
-  acquired: z.string().datetime('Invalid date format'),
 });
 
 export const educationSchema = z.object({
@@ -80,10 +79,23 @@ export const educationSchema = z.object({
   field: z.string().min(1, 'Field of study is required').max(100),
   location: z.string().min(1, 'Location is required').max(100),
   startDate: z.string().datetime('Invalid start date'),
-  endDate: z.string().datetime('Invalid end date').optional(),
-  gpa: z.number().min(0).max(4).optional(),
-  honors: z.array(z.string().min(1)).optional(),
-  activities: z.array(z.string().min(1)).optional(),
+  endDate: z.string().datetime('Invalid end date').optional().nullable(),
+  gpa: z.number().min(0).max(4).optional().nullable(),
   courses: z.array(z.string().min(1)).optional(),
-  acquired: z.string().datetime('Invalid date format'),
+});
+
+export const diarySchema = z.object({
+  title: z.string().min(1, 'Title is required').max(200),
+  content: z.string().min(1, 'Content is required').max(5000),
+  date: z.string().datetime('Invalid date format'),
+  tags: z.array(z.string().min(1)).min(1, 'At least one tag is required'),
+  mood: z.string().max(50).optional().nullable(),
+});
+
+export const chatMessageSchema = z.object({
+  message: z.string().min(1, 'Message is required').max(1000, 'Message too long'),
+  conversationHistory: z.array(z.object({
+    role: z.enum(['user', 'assistant']),
+    content: z.string(),
+  })).optional(),
 }); 

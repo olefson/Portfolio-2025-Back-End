@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.educationSchema = exports.jobSchema = exports.processSchema = exports.projectSchema = exports.toolSchema = void 0;
+exports.chatMessageSchema = exports.diarySchema = exports.educationSchema = exports.jobSchema = exports.processSchema = exports.projectUpdateSchema = exports.projectSchema = exports.toolSchema = void 0;
 const zod_1 = require("zod");
 const client_1 = require("@prisma/client");
 exports.toolSchema = zod_1.z.object({
@@ -39,6 +39,17 @@ exports.projectSchema = zod_1.z.object({
         message: 'Invalid date format. Expected YYYY-MM-DD or ISO datetime format'
     }).optional(),
 });
+// Schema for partial updates (PATCH-style) - all fields optional but validated if present
+exports.projectUpdateSchema = exports.projectSchema.partial().refine((data) => {
+    // If tags are provided, they must have at least one element
+    if (data.tags !== undefined && data.tags.length === 0) {
+        return false;
+    }
+    return true;
+}, {
+    message: 'If tags are provided, at least one tag is required',
+    path: ['tags']
+});
 exports.processSchema = zod_1.z.object({
     title: zod_1.z.string().min(1, 'Title is required').max(100),
     description: zod_1.z.string().min(1, 'Description is required').max(1000),
@@ -53,12 +64,11 @@ exports.jobSchema = zod_1.z.object({
     location: zod_1.z.string().min(1, 'Location is required').max(100),
     type: zod_1.z.nativeEnum(client_1.JobType),
     startDate: zod_1.z.string().datetime('Invalid start date'),
-    endDate: zod_1.z.string().datetime('Invalid end date').optional(),
+    endDate: zod_1.z.string().datetime('Invalid end date').optional().nullable(),
     description: zod_1.z.string().min(1, 'Description is required').max(2000),
     responsibilities: zod_1.z.array(zod_1.z.string().min(1)).min(1, 'At least one responsibility is required'),
     technologies: zod_1.z.array(zod_1.z.string().min(1)).min(1, 'At least one technology is required'),
     achievements: zod_1.z.array(zod_1.z.string().min(1)).optional(),
-    acquired: zod_1.z.string().datetime('Invalid date format'),
 });
 exports.educationSchema = zod_1.z.object({
     institution: zod_1.z.string().min(1, 'Institution is required').max(100),
@@ -67,10 +77,21 @@ exports.educationSchema = zod_1.z.object({
     field: zod_1.z.string().min(1, 'Field of study is required').max(100),
     location: zod_1.z.string().min(1, 'Location is required').max(100),
     startDate: zod_1.z.string().datetime('Invalid start date'),
-    endDate: zod_1.z.string().datetime('Invalid end date').optional(),
-    gpa: zod_1.z.number().min(0).max(4).optional(),
-    honors: zod_1.z.array(zod_1.z.string().min(1)).optional(),
-    activities: zod_1.z.array(zod_1.z.string().min(1)).optional(),
+    endDate: zod_1.z.string().datetime('Invalid end date').optional().nullable(),
+    gpa: zod_1.z.number().min(0).max(4).optional().nullable(),
     courses: zod_1.z.array(zod_1.z.string().min(1)).optional(),
-    acquired: zod_1.z.string().datetime('Invalid date format'),
+});
+exports.diarySchema = zod_1.z.object({
+    title: zod_1.z.string().min(1, 'Title is required').max(200),
+    content: zod_1.z.string().min(1, 'Content is required').max(5000),
+    date: zod_1.z.string().datetime('Invalid date format'),
+    tags: zod_1.z.array(zod_1.z.string().min(1)).min(1, 'At least one tag is required'),
+    mood: zod_1.z.string().max(50).optional().nullable(),
+});
+exports.chatMessageSchema = zod_1.z.object({
+    message: zod_1.z.string().min(1, 'Message is required').max(1000, 'Message too long'),
+    conversationHistory: zod_1.z.array(zod_1.z.object({
+        role: zod_1.z.enum(['user', 'assistant']),
+        content: zod_1.z.string(),
+    })).optional(),
 });

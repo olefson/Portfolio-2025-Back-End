@@ -1,0 +1,1793 @@
+{
+  "tools": [
+    {
+      "id": "ffcbaf44-4ea6-45a3-a9f1-672c4d0d6653",
+      "name": "Audible",
+      "description": "My primary platform for consuming books through audiobooks, allowing me to learn while multitasking.",
+      "category": "Other",
+      "iconUrl": "/images/tools/audible.svg",
+      "link": "https://www.audible.com",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Listen to books during commutes",
+            "Combine workouts with learning",
+            "Make household chores more engaging"
+          ],
+          "title": "Multitask Learning"
+        },
+        {
+          "items": [
+            "Stay updated with industry trends",
+            "Learn new skills through comprehensive guides"
+          ],
+          "title": "Professional Development"
+        },
+        {
+          "items": [
+            "Enjoy fiction during downtime",
+            "Help with sleep",
+            "Listen to exclusive Audible originals"
+          ],
+          "title": "Entertainment & Enrichment"
+        }
+      ]
+    },
+    {
+      "id": "3c9f268d-84be-4519-bc7a-c636f835efe3",
+      "name": "Canva",
+      "description": "A rapidly expanding online design platform with templates and quick editing capabilities",
+      "category": "Design",
+      "iconUrl": "/images/tools/canva.svg",
+      "link": "https://www.canva.com/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Social media posts and banners",
+            "Profile and cover images",
+            "Story and reel graphics",
+            "Social media templates"
+          ],
+          "title": "Social Media Content"
+        },
+        {
+          "items": [
+            "Business presentations",
+            "Marketing flyers",
+            "Email headers",
+            "Branded templates"
+          ],
+          "title": "Marketing Materials"
+        },
+        {
+          "items": [
+            "Quick graphic design tasks",
+            "Background removal",
+            "Image editing",
+            "Visual content creation"
+          ],
+          "title": "Design Projects"
+        }
+      ]
+    },
+    {
+      "id": "21818470-c4a8-49bd-9b15-c3c152e8f39e",
+      "name": "ChatGPT",
+      "description": "OpenAI's flagship conversational AI model. Currently using the Pro version for unlimited quota.",
+      "category": "AI",
+      "iconUrl": "/images/tools/chatgpt.svg",
+      "link": "https://chat.openai.com/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Code debugging and optimization",
+            "Algorithm design and implementation",
+            "Technical documentation writing",
+            "Code review and suggestions"
+          ],
+          "title": "Development Assistance"
+        },
+        {
+          "items": [
+            "Post drafting",
+            "Technical writing",
+            "Documentation generation"
+          ],
+          "title": "Content Creation"
+        },
+        {
+          "items": [
+            "Technical concept explanation",
+            "Research assistance",
+            "Problem-solving guidance",
+            "Knowledge verification"
+          ],
+          "title": "Learning and Research"
+        }
+      ]
+    },
+    {
+      "id": "b8d158f9-be5f-4b52-ba0e-d15398b63848",
+      "name": "Chroma",
+      "description": "Open-source embedding database optimized for AI applications, offering vector search, document storage, full-text search, and multi-modal capabilities",
+      "category": "Development",
+      "iconUrl": "/images/tools/chroma.svg",
+      "link": "https://www.trychroma.com/",
+      "status": "Plan to Try",
+      "useCases": []
+    },
+    {
+      "id": "6bfbe9ad-64a3-42d1-bd5c-f2e70aa91d2f",
+      "name": "Claude",
+      "description": "Anthropic's LLM specialized in coding and complex queries",
+      "category": "AI",
+      "iconUrl": "/images/tools/claude.svg",
+      "link": "https://claude.ai/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Complex code analysis",
+            "Performance optimization"
+          ],
+          "title": "Technical Development"
+        },
+        {
+          "items": [
+            "Deep technical research",
+            "Data analysis assistance",
+            "Technical documentation review"
+          ],
+          "title": "Research and Analysis"
+        },
+        {
+          "items": [
+            "Technical documentation",
+            "Research summaries",
+            "Detailed explanations",
+            "Complex topic breakdowns"
+          ],
+          "title": "Content Generation"
+        }
+      ]
+    },
+    {
+      "id": "6bd2a744-0f37-450f-b9c9-09938464f6d7",
+      "name": "Cloud Functions",
+      "description": "Serverless compute service I use for running asynchronous jobs like file processing and data vectorization",
+      "category": "Development",
+      "iconUrl": "/images/tools/cloud-functions.svg",
+      "link": "https://cloud.google.com/functions",
+      "status": "Using",
+      "useCases": []
+    },
+    {
+      "id": "afbee264-f95d-445f-83a8-071abeafaa7c",
+      "name": "Crawl4AI",
+      "description": "Open-source web crawler optimized for LLM-friendly data extraction with smart content filtering and structured output formats",
+      "category": "Development",
+      "iconUrl": "/images/tools/crawl4ai.svg",
+      "link": "https://github.com/unclecode/crawl4ai",
+      "status": "Plan to Try",
+      "useCases": []
+    },
+    {
+      "id": "249633ab-dcc6-4543-83b2-1fa5fb566324",
+      "name": "Cursor",
+      "description": "AI-powered code editor (VS Code fork) for enhanced development flow",
+      "category": "Development",
+      "iconUrl": "/images/tools/cursor.svg",
+      "link": "https://cursor.com/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Flow-state coding environment",
+            "AI-powered auto-completion",
+            "Code refactoring assistance",
+            "Intelligent code suggestions"
+          ],
+          "title": "Development Flow"
+        }
+      ]
+    },
+    {
+      "id": "3f3824dd-9258-4e10-9f67-ec8e9798f684",
+      "name": "Discord",
+      "description": "Flexible communication platform with extensive integrations and channel organization",
+      "category": "Communication",
+      "iconUrl": "/images/tools/discord.svg",
+      "link": "https://discord.com/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Real-time team discussions",
+            "Project coordination",
+            "Code review discussions",
+            "Knowledge sharing"
+          ],
+          "title": "Team Communication"
+        },
+        {
+          "items": [
+            "Community engagement",
+            "Support channels",
+            "Announcement distribution",
+            "Event organization"
+          ],
+          "title": "Community Management"
+        },
+        {
+          "items": [
+            "Bot automation",
+            "Service notifications",
+            "CI/CD alerts",
+            "System monitoring"
+          ],
+          "title": "Integration Hub"
+        }
+      ]
+    },
+    {
+      "id": "7f3f0b58-8cc6-4f6f-aa26-7a0928f4fa3e",
+      "name": "Firebase",
+      "description": "Google's platform for building and scaling web and mobile applications with serverless backend services",
+      "category": "Development",
+      "iconUrl": "/images/tools/firebase.svg",
+      "link": "https://firebase.google.com",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Authentication system",
+            "Real-time database",
+            "Cloud Firestore",
+            "File storage",
+            "Serverless functions",
+            "Hosting"
+          ],
+          "title": "Backend Services"
+        },
+        {
+          "items": [
+            "Live data synchronization",
+            "Real-time updates",
+            "Presence detection",
+            "Chat functionality",
+            "Collaborative features"
+          ],
+          "title": "Real-time Features"
+        },
+        {
+          "items": [
+            "User management",
+            "Security rules",
+            "Data backups",
+            "Analytics",
+            "Performance monitoring",
+            "Crash reporting"
+          ],
+          "title": "App Infrastructure"
+        }
+      ]
+    },
+    {
+      "id": "5c70580d-8e39-4272-a5e0-3a98067608e4",
+      "name": "Creality K1",
+      "description": "High-speed 3D printer with advanced features for rapid prototyping and production",
+      "category": "Other",
+      "iconUrl": "/images/tools/creality-k1.svg",
+      "link": "https://www.creality.com/products/k1-3d-printer",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Product design",
+            "Concept validation",
+            "Iterative testing",
+            "Functional prototypes"
+          ],
+          "title": "Prototyping"
+        },
+        {
+          "items": [
+            "Small batch manufacturing",
+            "Custom parts",
+            "Replacement components",
+            "Specialized tools"
+          ],
+          "title": "Production"
+        },
+        {
+          "items": [
+            "Design learning",
+            "Engineering projects",
+            "Creative exploration",
+            "Technical education"
+          ],
+          "title": "Education"
+        }
+      ]
+    },
+    {
+      "id": "d992ef41-8ea4-4ac4-b6e8-4d13013d198a",
+      "name": "GitGuardian",
+      "description": "Security platform that helps detect and prevent secrets from being exposed in code repositories",
+      "category": "Development",
+      "iconUrl": "/images/tools/gitguardian.svg",
+      "link": "https://gitguardian.com",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Real-time monitoring of Git commits",
+            "Pre-commit hooks for local checks",
+            "Detection of API keys and credentials",
+            "Custom pattern matching for secrets"
+          ],
+          "title": "Secret Detection"
+        },
+        {
+          "items": [
+            "Immediate notifications of exposures",
+            "Quick remediation guidance",
+            "Historical incident tracking",
+            "Audit trail for security events"
+          ],
+          "title": "Security Incident Response"
+        },
+        {
+          "items": [
+            "CI/CD pipeline integration",
+            "Pull request scanning",
+            "Automated security checks",
+            "Team collaboration on security"
+          ],
+          "title": "Development Security"
+        }
+      ]
+    },
+    {
+      "id": "37299a91-5e50-44c2-a260-6cbab320d794",
+      "name": "GitHub",
+      "description": "Version control and collaboration platform for code hosting and development",
+      "category": "Development",
+      "iconUrl": "/images/tools/github.svg",
+      "link": "https://github.com",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Host all my code projects",
+            "Version control with Git",
+            "Code backup and history",
+            "Branch management for features/fixes"
+          ],
+          "title": "Code Repository Management"
+        },
+        {
+          "items": [
+            "Pull request workflow",
+            "Code review process",
+            "Issue tracking",
+            "Project boards for task management",
+            "Team collaboration features"
+          ],
+          "title": "Project Collaboration"
+        },
+        {
+          "items": [
+            "GitHub Actions for automation",
+            "Automated testing",
+            "Deployment pipelines",
+            "Code quality checks",
+            "Package publishing"
+          ],
+          "title": "CI/CD and Automation"
+        }
+      ]
+    },
+    {
+      "id": "8b3cf348-5c5d-424b-b386-06282d2e18eb",
+      "name": "Google Calendar",
+      "description": "Cloud-based calendar for scheduling and event management",
+      "category": "Productivity",
+      "iconUrl": "/images/tools/google-calendar.svg",
+      "link": "https://calendar.google.com/",
+      "status": "Using",
+      "useCases": []
+    },
+    {
+      "id": "856812e6-64ab-4e37-ac7d-fdb270de46b1",
+      "name": "Google",
+      "description": "General-purpose search engine for deep research",
+      "category": "Other",
+      "iconUrl": "/images/tools/google.svg",
+      "link": "https://www.google.com/",
+      "status": "Using",
+      "useCases": []
+    },
+    {
+      "id": "d67f71a7-f066-48c0-9b27-b19271511117",
+      "name": "Granola",
+      "description": "AI notepad that enhances meeting notes with transcription and GPT-4",
+      "category": "Productivity",
+      "iconUrl": "/images/tools/granola.svg",
+      "link": "https://www.granola.ai/",
+      "status": "Plan to Try",
+      "useCases": []
+    },
+    {
+      "id": "ce786b40-0713-49f3-8c39-782b4be955c6",
+      "name": "Hugging Face Spaces",
+      "description": "Directory and hosting platform for AI applications, offering a searchable collection of community-built models, demos, and tools with easy deployment",
+      "category": "AI",
+      "iconUrl": "/images/tools/huggingface-spaces.svg",
+      "link": "https://huggingface.co/spaces",
+      "status": "Plan to Try",
+      "useCases": []
+    },
+    {
+      "id": "0daabfc7-9d6f-4ab7-8cf5-c63155b82510",
+      "name": "Magic Patterns",
+      "description": "AI-powered UI prototyping tool for quickly generating and iterating on components and designs, with export to React or Figma",
+      "category": "Design",
+      "iconUrl": "/images/tools/magic-patterns.svg",
+      "link": "https://www.magicpatterns.com/",
+      "status": "Plan to Try",
+      "useCases": []
+    },
+    {
+      "id": "16fe65db-4286-4534-b826-4c1046d8b6c2",
+      "name": "Midjourney",
+      "description": "AI image generation specialized in artistic and imaginative visuals",
+      "category": "Design",
+      "iconUrl": "/images/tools/midjourney.svg",
+      "link": "https://www.midjourney.com/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Blog post illustrations",
+            "Social media graphics",
+            "Concept visualization",
+            "Brand imagery"
+          ],
+          "title": "Visual Content Creation"
+        },
+        {
+          "items": [
+            "Creative brainstorming",
+            "Style exploration",
+            "Mood board creation",
+            "Visual prototyping"
+          ],
+          "title": "Design Exploration"
+        },
+        {
+          "items": [
+            "Artistic inspiration",
+            "Style experimentation",
+            "Creative direction",
+            "Visual storytelling"
+          ],
+          "title": "Artistic Development"
+        }
+      ]
+    },
+    {
+      "id": "7457dfe6-ad30-46b5-ba04-b3015d80b39c",
+      "name": "Motion",
+      "description": "Modern animation library for creating native app-like animations in React applications",
+      "category": "Development",
+      "iconUrl": "/images/tools/motion.svg",
+      "link": "https://motion.dev/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Smooth transitions",
+            "Hover effects",
+            "Click animations",
+            "Page transitions"
+          ],
+          "title": "Component Animations"
+        },
+        {
+          "items": [
+            "Drag and drop",
+            "Pan gestures",
+            "Pinch to zoom",
+            "Touch interactions"
+          ],
+          "title": "Gesture Interactions"
+        },
+        {
+          "items": [
+            "Scroll-linked animations",
+            "Parallax effects",
+            "Scroll progress",
+            "Reveal on scroll"
+          ],
+          "title": "Scroll Effects"
+        }
+      ]
+    },
+    {
+      "id": "9b05f747-f07e-4772-8389-433ac26eb5d2",
+      "name": "Notion",
+      "description": "All-in-one workspace for docs, wikis, and simple project management",
+      "category": "Productivity",
+      "iconUrl": "/images/tools/notion.svg",
+      "link": "https://www.notion.so/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Documentation organization",
+            "Wiki creation",
+            "Knowledge base building",
+            "Information architecture"
+          ],
+          "title": "Knowledge Management"
+        },
+        {
+          "items": [
+            "Task tracking",
+            "Project planning",
+            "Team collaboration",
+            "Resource organization"
+          ],
+          "title": "Project Management"
+        },
+        {
+          "items": [
+            "Note taking",
+            "Personal wiki",
+            "Task management",
+            "Information tracking"
+          ],
+          "title": "Personal Organization"
+        }
+      ]
+    },
+    {
+      "id": "9ed0d410-d756-4613-b459-abe9fef7cfc0",
+      "name": "OpenRouter",
+      "description": "Unified API interface for accessing multiple LLM models with better pricing, uptime, and no subscription requirements",
+      "category": "AI",
+      "iconUrl": "/images/tools/openrouter.svg",
+      "link": "https://openrouter.ai/",
+      "status": "Plan to Try",
+      "useCases": []
+    },
+    {
+      "id": "2a6b118f-76e4-47b2-892f-074e6c03a407",
+      "name": "Pinokio",
+      "description": "Browser-based tool for installing, running, and managing server applications locally with one-click installation and management capabilities",
+      "category": "Development",
+      "iconUrl": "/images/tools/pinokio.svg",
+      "link": "https://pinokio.computer/",
+      "status": "Plan to Try",
+      "useCases": []
+    },
+    {
+      "id": "6c3a38c5-07e7-40ed-8a69-51a68e06967b",
+      "name": "NPM",
+      "description": "Node Package Manager, the standard package manager for JavaScript and Node.js applications",
+      "category": "Development",
+      "iconUrl": "/images/tools/npm.svg",
+      "link": "https://www.npmjs.com/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Dependency installation",
+            "Version management",
+            "Package publishing",
+            "Registry interaction"
+          ],
+          "title": "Package Management"
+        },
+        {
+          "items": [
+            "Project initialization",
+            "Script configuration",
+            "Dependency management",
+            "Workspace setup"
+          ],
+          "title": "Project Setup"
+        },
+        {
+          "items": [
+            "Local development",
+            "CI/CD integration",
+            "Package distribution",
+            "Version control"
+          ],
+          "title": "Development Workflow"
+        }
+      ]
+    },
+    {
+      "id": "3a5c98b1-5c34-4f29-86d6-21bd7c7f7e3d",
+      "name": "PNPM",
+      "description": "Fast, disk space efficient package manager that uses hard links and strict dependency management for better Node.js development",
+      "category": "Development",
+      "iconUrl": "/images/tools/pnpm.svg",
+      "link": "https://pnpm.io/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Hard linking for disk efficiency",
+            "Strict dependency checking",
+            "Monorepo management",
+            "Workspace orchestration"
+          ],
+          "title": "Dependency Management"
+        },
+        {
+          "items": [
+            "Parallel installation",
+            "Content-addressable store",
+            "Efficient caching",
+            "Fast package resolution"
+          ],
+          "title": "Performance Optimization"
+        },
+        {
+          "items": [
+            "Workspace scripts",
+            "Dependency hoisting",
+            "Lock file management",
+            "Version management"
+          ],
+          "title": "Project Management"
+        }
+      ]
+    },
+    {
+      "id": "145bb115-f878-4646-beb2-f6577a47a827",
+      "name": "Speechify",
+      "description": "AI-powered text-to-speech tool for listening to articles, documents, and written content with natural-sounding voices",
+      "category": "Productivity",
+      "iconUrl": "/images/tools/speechify.svg",
+      "link": "https://speechify.com/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Listen to blog posts",
+            "Process long articles",
+            "Absorb newsletters",
+            "Review documentation"
+          ],
+          "title": "Article Consumption"
+        },
+        {
+          "items": [
+            "Listen while exercising",
+            "Consume content during commutes",
+            "Process emails while walking",
+            "Review documents during tasks"
+          ],
+          "title": "Multitasking Enhancement"
+        },
+        {
+          "items": [
+            "Process technical content",
+            "Review study materials",
+            "Listen to research papers",
+            "Absorb complex topics",
+            "Helps with ADHD"
+          ],
+          "title": "Learning Support"
+        }
+      ]
+    },
+    {
+      "id": "ec450ef6-698e-4bbd-b5ad-3011b1ebe12b",
+      "name": "Spline",
+      "description": "Browser-based 3D design tool for creating and exporting interactive web experiences with WebGL, featuring real-time collaboration",
+      "category": "Design",
+      "iconUrl": "/images/tools/spline.svg",
+      "link": "https://spline.design/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Interactive scenes",
+            "Product showcases",
+            "Landing page elements",
+            "Animated illustrations"
+          ],
+          "title": "3D Web Design"
+        },
+        {
+          "items": [
+            "User interactions",
+            "Motion design",
+            "Event handling",
+            "Physics simulations"
+          ],
+          "title": "Interactive Development"
+        },
+        {
+          "items": [
+            "React components",
+            "WebGL export",
+            "Performance optimization",
+            "Responsive design"
+          ],
+          "title": "Web Integration"
+        }
+      ]
+    },
+    {
+      "id": "16b1cb2a-b503-4b7e-a621-a824fab3c3dc",
+      "name": "Storybook",
+      "description": "Frontend workshop for building UI components and pages in isolation, with support for testing, documentation, and visual development",
+      "category": "Development",
+      "iconUrl": "/images/tools/storybook.svg",
+      "link": "https://storybook.js.org/",
+      "status": "Plan to Try",
+      "useCases": [
+        {
+          "items": [
+            "Isolated UI building",
+            "Edge case testing",
+            "Visual development",
+            "Component showcase"
+          ],
+          "title": "Component Development"
+        },
+        {
+          "items": [
+            "Auto-generated docs",
+            "Component examples",
+            "Usage guidelines",
+            "Design system docs"
+          ],
+          "title": "Documentation"
+        },
+        {
+          "items": [
+            "Visual testing",
+            "Interaction testing",
+            "Accessibility checks",
+            "Snapshot testing"
+          ],
+          "title": "Testing Integration"
+        }
+      ]
+    },
+    {
+      "id": "16769822-fe6f-43d8-876c-5762ff931fda",
+      "name": "super.so",
+      "description": "Wraps Notion pages on a custom domain with additional styling/themes",
+      "category": "Development",
+      "iconUrl": "/images/tools/super-so.svg",
+      "link": "https://super.so/",
+      "status": "Plan to Try",
+      "useCases": [
+        {
+          "items": [
+            "Technical documentation",
+            "Product documentation",
+            "Knowledge bases",
+            "Team wikis"
+          ],
+          "title": "Documentation Sites"
+        },
+        {
+          "items": [
+            "Personal portfolios",
+            "Project showcases",
+            "Team portfolios",
+            "Work samples"
+          ],
+          "title": "Portfolio Sites"
+        },
+        {
+          "items": [
+            "Blog sites",
+            "Newsletters",
+            "Content hubs",
+            "Resource centers"
+          ],
+          "title": "Content Publishing"
+        }
+      ]
+    },
+    {
+      "id": "f7a266ff-c9c1-4c2d-96af-fe2600931a84",
+      "name": "TanStack Query",
+      "description": "Powerful asynchronous state management and data fetching library for React applications",
+      "category": "Development",
+      "iconUrl": "/images/tools/tanstack-query.svg",
+      "link": "https://tanstack.com/query",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Fetch and cache API data",
+            "Handle loading states",
+            "Manage error boundaries",
+            "Automatic background updates"
+          ],
+          "title": "Data Fetching"
+        },
+        {
+          "items": [
+            "Cache server state",
+            "Optimize network requests",
+            "Manage pagination",
+            "Handle infinite scrolling"
+          ],
+          "title": "State Management"
+        },
+        {
+          "items": [
+            "Polling and refetching",
+            "Optimistic updates",
+            "WebSocket integration",
+            "Live data synchronization"
+          ],
+          "title": "Real-time Updates"
+        }
+      ]
+    },
+    {
+      "id": "b824c526-c667-4c8c-8cde-f882b0d557d9",
+      "name": "Telegram",
+      "description": "Cross-platform messaging app with bot integration capabilities",
+      "category": "Communication",
+      "iconUrl": "/images/tools/telegram.svg",
+      "link": "https://telegram.org/",
+      "status": "Suspended",
+      "useCases": [
+        {
+          "items": [
+            "Group discussions",
+            "File sharing",
+            "Bot integration",
+            "Team coordination"
+          ],
+          "title": "Team Communication"
+        },
+        {
+          "items": [
+            "Automation tools",
+            "Notification systems",
+            "Service integration",
+            "Custom workflows"
+          ],
+          "title": "Bot Development"
+        },
+        {
+          "items": [
+            "Community channels",
+            "Support groups",
+            "Announcement channels",
+            "Discussion forums"
+          ],
+          "title": "Community Building"
+        }
+      ]
+    },
+    {
+      "id": "982e36f8-8e79-4da5-a48e-a67a4b16f2c3",
+      "name": "ToDesktop",
+      "description": "No-code platform for converting web applications into native desktop apps with Electron, featuring native functionality and customizable UI",
+      "category": "Development",
+      "iconUrl": "/images/tools/todesktop.svg",
+      "link": "https://todesktop.com/",
+      "status": "Plan to Try",
+      "useCases": []
+    },
+    {
+      "id": "398d8abc-c121-418a-983a-3f18192ec0d3",
+      "name": "Unicorn Studio",
+      "description": "WebGL-powered website builder for creating immersive 3D web experiences with no-code interface",
+      "category": "Design",
+      "iconUrl": "/images/tools/unicorn-studio.svg",
+      "link": "https://www.unicorn.studio/",
+      "status": "Plan to Try",
+      "useCases": []
+    },
+    {
+      "id": "de7a23e8-ef1b-4f3e-b86a-57eabdab2849",
+      "name": "Vercel",
+      "description": "Platform for deploying and hosting web applications with seamless Git integration",
+      "category": "Development",
+      "iconUrl": "/images/tools/vercel.svg",
+      "link": "https://vercel.com",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Next.js applications",
+            "React applications",
+            "Static websites",
+            "Serverless functions",
+            "Edge computing"
+          ],
+          "title": "Web Application Deployment"
+        },
+        {
+          "items": [
+            "Automatic deployments from Git",
+            "Preview deployments for PRs",
+            "Branch deployments",
+            "Team collaboration",
+            "Analytics and monitoring"
+          ],
+          "title": "Development Workflow"
+        },
+        {
+          "items": [
+            "Custom domains",
+            "SSL certificates",
+            "DNS management",
+            "CDN and edge network",
+            "HTTPS enforcement"
+          ],
+          "title": "Domain Management"
+        }
+      ]
+    },
+    {
+      "id": "cf750b9a-21d2-4ea8-8c1d-b23f05f2c831",
+      "name": "YouTube",
+      "description": "A vast platform for learning through video content, tutorials, and educational channels",
+      "category": "Other",
+      "iconUrl": "/images/tools/youtube.svg",
+      "link": "https://www.youtube.com/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Technical tutorials",
+            "Skill development",
+            "Concept explanation",
+            "Best practices"
+          ],
+          "title": "Learning and Education"
+        },
+        {
+          "items": [
+            "Technical documentation",
+            "Product reviews",
+            "Industry insights",
+            "Case studies"
+          ],
+          "title": "Research and Reference"
+        },
+        {
+          "items": [
+            "Industry trends",
+            "Expert interviews",
+            "Conference talks",
+            "Professional insights"
+          ],
+          "title": "Professional Development"
+        }
+      ]
+    },
+    {
+      "id": "44764c9c-e681-4221-9733-3db61cae0581",
+      "name": "Bland.ai",
+      "description": "AI-powered voice calling platform that enables automated phone calls with natural-sounding voices",
+      "category": "AI",
+      "iconUrl": "/images/tools/bland-ai.svg",
+      "link": "https://bland.ai/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Appointment reminders",
+            "Customer follow-ups",
+            "Survey calls",
+            "Information dissemination"
+          ],
+          "title": "Automated Calling"
+        },
+        {
+          "items": [
+            "Customer service calls",
+            "Lead qualification",
+            "Order confirmations",
+            "Service notifications"
+          ],
+          "title": "Business Automation"
+        },
+        {
+          "items": [
+            "CRM integration",
+            "Call analytics",
+            "Custom call routing",
+            "Response handling"
+          ],
+          "title": "Integration Features"
+        }
+      ]
+    },
+    {
+      "id": "6334b7a2-fa66-49f0-af00-dd2ae0ef008c",
+      "name": "Anki",
+      "description": "Spaced repetition flashcard program that helps with efficient memorization and long-term retention",
+      "category": "Other",
+      "iconUrl": "/images/tools/anki.svg",
+      "link": "https://apps.ankiweb.net/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Vocabulary building",
+            "Grammar rules",
+            "Phrase memorization",
+            "Character recognition"
+          ],
+          "title": "Language Learning"
+        },
+        {
+          "items": [
+            "Programming concepts",
+            "Technical terms",
+            "Command memorization",
+            "API documentation"
+          ],
+          "title": "Technical Learning"
+        },
+        {
+          "items": [
+            "Fact memorization",
+            "Concept reinforcement",
+            "Exam preparation",
+            "Skill retention"
+          ],
+          "title": "General Knowledge"
+        }
+      ]
+    },
+    {
+      "id": "5b56c328-befc-423e-be1c-4994d8896b0a",
+      "name": "Replit",
+      "description": "Cloud-based development environment that enables coding in any language with zero setup",
+      "category": "Development",
+      "iconUrl": "/images/tools/replit.svg",
+      "link": "https://replit.com/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Quick prototyping",
+            "Code testing",
+            "Project experimentation",
+            "Learning new languages"
+          ],
+          "title": "Rapid Development"
+        },
+        {
+          "items": [
+            "Pair programming",
+            "Team projects",
+            "Code sharing",
+            "Real-time editing"
+          ],
+          "title": "Collaboration"
+        },
+        {
+          "items": [
+            "Teaching programming",
+            "Student assignments",
+            "Code demonstrations",
+            "Workshop environments"
+          ],
+          "title": "Education"
+        }
+      ]
+    },
+    {
+      "id": "7441c175-eef9-4c42-b851-c56ccecf559b",
+      "name": "PyTorch",
+      "description": "Deep learning framework for building and training neural networks",
+      "category": "Development",
+      "iconUrl": "/images/tools/pytorch.svg",
+      "link": "https://pytorch.org",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Neural networks",
+            "Computer vision",
+            "NLP models",
+            "Reinforcement learning"
+          ],
+          "title": "Deep Learning"
+        },
+        {
+          "items": [
+            "Model development",
+            "Experiment tracking",
+            "Custom layers",
+            "Model optimization"
+          ],
+          "title": "Research"
+        }
+      ]
+    },
+    {
+      "id": "19e410f9-b1c7-4b4b-a277-b9e9f25218eb",
+      "name": "Snipaste",
+      "description": "Powerful screenshot and image editing tool with advanced features for productivity",
+      "category": "Productivity",
+      "iconUrl": "/images/tools/snipaste.svg",
+      "link": "https://www.snipaste.com/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Quick captures",
+            "Image editing",
+            "Annotation tools",
+            "Multiple monitor support"
+          ],
+          "title": "Screenshot Management"
+        },
+        {
+          "items": [
+            "Reference pinning",
+            "Color picking",
+            "Image comparison",
+            "Quick sharing"
+          ],
+          "title": "Workflow Enhancement"
+        },
+        {
+          "items": [
+            "Tutorial creation",
+            "Bug reporting",
+            "Design feedback",
+            "Process documentation"
+          ],
+          "title": "Documentation"
+        }
+      ]
+    },
+    {
+      "id": "8ce76be3-ad94-4cbd-b3fd-8d124d2d6da6",
+      "name": "Raspberry Pi",
+      "description": "Versatile single-board computer used for IoT projects, automation, and edge computing, particularly for plant monitoring and ML model deployment",
+      "category": "Other",
+      "iconUrl": "/images/tools/raspberry-pi.svg",
+      "link": "https://www.raspberrypi.com/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Automated image capture",
+            "Growth tracking",
+            "Disease detection",
+            "Environmental monitoring"
+          ],
+          "title": "Plant Monitoring"
+        },
+        {
+          "items": [
+            "Image data collection",
+            "Cloud integration",
+            "Model deployment",
+            "Automated analysis"
+          ],
+          "title": "ML Pipeline"
+        },
+        {
+          "items": [
+            "Sensor management",
+            "Data aggregation",
+            "Cloud synchronization",
+            "Automated scheduling"
+          ],
+          "title": "IoT Integration"
+        }
+      ]
+    },
+    {
+      "id": "0b6ef661-114c-43ec-a888-f4e78fa94f4f",
+      "name": "Stripe",
+      "description": "Payment processing platform for handling online transactions and subscriptions",
+      "category": "Development",
+      "iconUrl": "/images/tools/stripe.svg",
+      "link": "https://stripe.com",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Credit card payments",
+            "Subscription billing",
+            "Payment intents",
+            "Refund handling"
+          ],
+          "title": "Payment Processing"
+        },
+        {
+          "items": [
+            "Revenue tracking",
+            "Customer management",
+            "Invoice generation",
+            "Tax compliance"
+          ],
+          "title": "Business Operations"
+        }
+      ]
+    },
+    {
+      "id": "1ac6c864-d50f-4357-9204-a97e72aa5c77",
+      "name": "AWS",
+      "description": "Amazon Web Services cloud platform providing various infrastructure and platform services",
+      "category": "Development",
+      "iconUrl": "/images/tools/aws.svg",
+      "link": "https://aws.amazon.com",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "EC2 instances",
+            "S3 storage",
+            "Lambda functions",
+            "CloudFront CDN"
+          ],
+          "title": "Infrastructure"
+        },
+        {
+          "items": [
+            "RDS databases",
+            "DynamoDB",
+            "ElastiCache",
+            "DocumentDB"
+          ],
+          "title": "Database Services"
+        },
+        {
+          "items": [
+            "CI/CD pipelines",
+            "Container orchestration",
+            "Monitoring and logging",
+            "Auto-scaling"
+          ],
+          "title": "DevOps"
+        }
+      ]
+    },
+    {
+      "id": "bb26c9ec-fa7e-48a1-a8fd-81b425726932",
+      "name": "React",
+      "description": "JavaScript library for building user interfaces with component-based architecture",
+      "category": "Development",
+      "iconUrl": "/images/tools/react.svg",
+      "link": "https://reactjs.org",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Single page applications",
+            "Component libraries",
+            "Interactive UIs",
+            "Real-time updates"
+          ],
+          "title": "Frontend Development"
+        },
+        {
+          "items": [
+            "Local state",
+            "Context API",
+            "Redux integration",
+            "Data fetching"
+          ],
+          "title": "State Management"
+        }
+      ]
+    },
+    {
+      "id": "f4b4bbad-ea85-4e35-bc50-3fff6ecca5ec",
+      "name": "Python",
+      "description": "Versatile programming language known for readability and extensive libraries",
+      "category": "Development",
+      "iconUrl": "/images/tools/python.svg",
+      "link": "https://python.org",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Data analysis",
+            "Machine learning",
+            "Scientific computing",
+            "Data visualization"
+          ],
+          "title": "Data Science"
+        },
+        {
+          "items": [
+            "Backend services",
+            "API development",
+            "Web scraping",
+            "Automation"
+          ],
+          "title": "Web Development"
+        }
+      ]
+    },
+    {
+      "id": "1ce89e89-5013-4c3c-ad27-f860fb6cccd2",
+      "name": "JavaScript",
+      "description": "Core programming language for web development and modern applications",
+      "category": "Development",
+      "iconUrl": "/images/tools/javascript.svg",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Frontend logic",
+            "DOM manipulation",
+            "Event handling",
+            "API integration"
+          ],
+          "title": "Web Development"
+        },
+        {
+          "items": [
+            "Node.js applications",
+            "API servers",
+            "CLI tools",
+            "Automation scripts"
+          ],
+          "title": "Server Development"
+        }
+      ]
+    },
+    {
+      "id": "59eb574d-985f-447e-a34a-b470775ba81c",
+      "name": "MongoDB",
+      "description": "NoSQL database for flexible, document-based data storage",
+      "category": "Development",
+      "iconUrl": "/images/tools/mongodb.svg",
+      "link": "https://mongodb.com",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Document storage",
+            "Real-time data",
+            "Content management",
+            "User data"
+          ],
+          "title": "Data Storage"
+        },
+        {
+          "items": [
+            "Data aggregation",
+            "Real-time analytics",
+            "Reporting",
+            "Data processing"
+          ],
+          "title": "Analytics"
+        }
+      ]
+    },
+    {
+      "id": "f5b0fb7d-0bd2-426e-be4f-ea2f4eabf3d3",
+      "name": "RabbitMQ",
+      "description": "Message broker for handling asynchronous communication between services",
+      "category": "Development",
+      "iconUrl": "/images/tools/rabbitmq.svg",
+      "link": "https://rabbitmq.com",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Service communication",
+            "Task distribution",
+            "Event handling",
+            "Load balancing"
+          ],
+          "title": "Message Queuing"
+        },
+        {
+          "items": [
+            "Microservices",
+            "Event-driven architecture",
+            "Background jobs",
+            "Real-time updates"
+          ],
+          "title": "System Integration"
+        }
+      ]
+    },
+    {
+      "id": "b003e938-c500-43a5-8fda-e43b9865887d",
+      "name": "PostgreSQL",
+      "description": "Advanced open-source relational database with robust features",
+      "category": "Development",
+      "iconUrl": "/images/tools/postgresql.svg",
+      "link": "https://postgresql.org",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Structured data",
+            "Complex queries",
+            "Data integrity",
+            "Transactions"
+          ],
+          "title": "Data Storage"
+        },
+        {
+          "items": [
+            "JSON support",
+            "Full-text search",
+            "Geospatial data",
+            "Custom functions"
+          ],
+          "title": "Advanced Features"
+        }
+      ]
+    },
+    {
+      "id": "b9eef6cd-6339-483b-8e62-80f608702a70",
+      "name": "WordPress",
+      "description": "Content management system for building websites and blogs",
+      "category": "Development",
+      "iconUrl": "/images/tools/wordpress.svg",
+      "link": "https://wordpress.org",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Blog creation",
+            "Website building",
+            "Content publishing",
+            "Media management"
+          ],
+          "title": "Content Management"
+        },
+        {
+          "items": [
+            "Theme development",
+            "Plugin creation",
+            "Custom post types",
+            "API integration"
+          ],
+          "title": "Customization"
+        }
+      ]
+    },
+    {
+      "id": "518d8be1-6ca7-4e0c-a717-041c4cb20467",
+      "name": "Docker",
+      "description": "Containerization platform for building, shipping, and running applications",
+      "category": "Development",
+      "iconUrl": "/images/tools/docker.svg",
+      "link": "https://docker.com",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Environment consistency",
+            "Local development",
+            "Testing environments",
+            "CI/CD pipelines"
+          ],
+          "title": "Development"
+        },
+        {
+          "items": [
+            "Container orchestration",
+            "Service scaling",
+            "Load balancing",
+            "Microservices"
+          ],
+          "title": "Deployment"
+        }
+      ]
+    },
+    {
+      "id": "b65f7ac9-00e6-479a-b431-0521dcfcf525",
+      "name": "TensorFlow",
+      "description": "Open-source machine learning framework for building and training models",
+      "category": "Development",
+      "iconUrl": "/images/tools/tensorflow.svg",
+      "link": "https://tensorflow.org",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Neural networks",
+            "Deep learning",
+            "Model training",
+            "Inference"
+          ],
+          "title": "Machine Learning"
+        },
+        {
+          "items": [
+            "Computer vision",
+            "Natural language processing",
+            "Time series analysis",
+            "Recommendation systems"
+          ],
+          "title": "AI Development"
+        }
+      ]
+    },
+    {
+      "id": "0edac545-1b62-49a8-8ccd-f76951a4c55a",
+      "name": "Heroku",
+      "description": "Cloud platform for deploying and managing applications",
+      "category": "Development",
+      "iconUrl": "/images/tools/heroku.svg",
+      "link": "https://heroku.com",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Web applications",
+            "API services",
+            "Background workers",
+            "Database hosting"
+          ],
+          "title": "Application Deployment"
+        },
+        {
+          "items": [
+            "Staging environments",
+            "CI/CD pipelines",
+            "Team collaboration",
+            "Add-on integration"
+          ],
+          "title": "Development"
+        }
+      ]
+    },
+    {
+      "id": "8104d736-e638-49e6-8def-ec0d100bb824",
+      "name": "Keras",
+      "description": "High-level neural network API for building and training deep learning models",
+      "category": "Development",
+      "iconUrl": "/images/tools/keras.svg",
+      "link": "https://keras.io",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Neural networks",
+            "Model prototyping",
+            "Transfer learning",
+            "Model evaluation"
+          ],
+          "title": "Deep Learning"
+        },
+        {
+          "items": [
+            "Experiment design",
+            "Model architecture",
+            "Hyperparameter tuning",
+            "Visualization"
+          ],
+          "title": "Research"
+        }
+      ]
+    },
+    {
+      "id": "0a5e705b-6073-47e5-a9fb-005529fdc5cb",
+      "name": "Postman",
+      "description": "API development and testing platform",
+      "category": "Development",
+      "iconUrl": "/images/tools/postman.svg",
+      "link": "https://postman.com",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Request testing",
+            "API documentation",
+            "Collection sharing",
+            "Environment setup"
+          ],
+          "title": "API Development"
+        },
+        {
+          "items": [
+            "Automated tests",
+            "Performance testing",
+            "Integration testing",
+            "Mock servers"
+          ],
+          "title": "Testing"
+        }
+      ]
+    },
+    {
+      "id": "843a25c5-57a0-4158-ac01-9bd6c5ef0ff3",
+      "name": "SQL",
+      "description": "Standard language for managing and manipulating relational databases",
+      "category": "Development",
+      "iconUrl": "/images/tools/sql.svg",
+      "link": "https://www.w3schools.com/sql/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Data querying",
+            "Table creation",
+            "Data modification",
+            "Index management"
+          ],
+          "title": "Database Management"
+        },
+        {
+          "items": [
+            "Complex queries",
+            "Data aggregation",
+            "Reporting",
+            "Data transformation"
+          ],
+          "title": "Data Analysis"
+        }
+      ]
+    },
+    {
+      "id": "a790a267-9653-462a-b184-7863792bd9fa",
+      "name": "FastAPI",
+      "description": "FastAPI is a modern, fast (high-performance), web framework for building APIs with Python based on standard Python type hints.",
+      "category": "Development",
+      "iconUrl": "https://img.icons8.com/?size=100&id=9267&format=png&color=000000",
+      "link": "https://fastapi.tiangolo.com/",
+      "status": "Using",
+      "useCases": [
+        {
+          "items": [
+            "Fast: Very high performance, on par with NodeJS and Go (thanks to Starlette and Pydantic)",
+            "Fast to code: Increase the speed to develop features by about 200% to 300%. ",
+            "Fewer bugs: Reduce about 40% of human (developer) induced errors.",
+            "Easy: Designed to be easy to use and learn. Less time reading docs.",
+            "Short: Minimize code duplication. Multiple features from each parameter declaration. Fewer bugs.",
+            "Standards-based: Based on (and fully compatible with) the open standards for APIs: OpenAPI (previously known as Swagger) and JSON Schema."
+          ],
+          "title": "Key Features",
+          "description": "What makes FastAPI Great?"
+        }
+      ]
+    }
+  ],
+  "processes": [
+    {
+      "id": "e710a63f-8a60-4296-bdca-d75286299996",
+      "title": "Custom Process 1",
+      "description": "Adding a custom process to test with. ",
+      "steps": [
+        "Use tool 1",
+        "use tool 2",
+        "Done!"
+      ],
+      "status": "Active",
+      "category": "Professional",
+      "tools": [
+        "Tool Test 2",
+        "Tool Test 1 (edited)"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "3dc26a6a-458b-4756-814e-2d8debd2825f",
+      "title": "PlateMate",
+      "description": "Plate-Mate was created for individuals that want to go out , either alone or with a friend, and cannot decide where to eat. Whether they do not know what is around, can't agree on where to go, or there are just too many options, this app will help remedy that.",
+      "imagePath": "/uploads/a1a25335-ae2e-4568-b40a-50f2aa3e47fd.gif",
+      "githubUrl": "https://gitlab.com/team-4-hack-n-snack/platemate",
+      "liveUrl": "https://team-4-hack-n-snack.gitlab.io/platemate/",
+      "tags": [
+        "Web Development"
+      ],
+      "toolsUsed": [
+        "518d8be1-6ca7-4e0c-a717-041c4cb20467",
+        "0a5e705b-6073-47e5-a9fb-005529fdc5cb",
+        "bb26c9ec-fa7e-48a1-a8fd-81b425726932",
+        "3c9f268d-84be-4519-bc7a-c636f835efe3",
+        "b003e938-c500-43a5-8fda-e43b9865887d",
+        "f4b4bbad-ea85-4e35-bc50-3fff6ecca5ec",
+        "1ce89e89-5013-4c3c-ad27-f860fb6cccd2"
+      ],
+      "date": "2023-02-02T00:00:00.000Z",
+      "featured": true
+    },
+    {
+      "id": "da8f09ac-ebf9-4298-90a5-5d52ba34c9bd",
+      "title": "Paw-Wow",
+      "description": "Paw Wow has been created for dog-owners who want to socialize their companion. Whether they stay local or travel to another city, they'll easily be able to find other dogs nearby!\n\nThanks to cool stuff like websockets, users can chat between friends and mutual connections!",
+      "imagePath": "/uploads/dcacad95-5453-4292-a1df-9f40d93cea16.gif",
+      "githubUrl": "https://gitlab.com/jasonolefson/dog-social",
+      "liveUrl": "",
+      "tags": [
+        "Web Development"
+      ],
+      "toolsUsed": [
+        "a790a267-9653-462a-b184-7863792bd9fa",
+        "bb26c9ec-fa7e-48a1-a8fd-81b425726932",
+        "b003e938-c500-43a5-8fda-e43b9865887d",
+        "0a5e705b-6073-47e5-a9fb-005529fdc5cb",
+        "f4b4bbad-ea85-4e35-bc50-3fff6ecca5ec"
+      ],
+      "date": "2023-07-31T00:00:00.000Z",
+      "featured": false
+    },
+    {
+      "id": "c4c8e13d-9956-47b0-86a8-0cf58e7de7f4",
+      "title": "OER4CTE",
+      "description": "A website developed and launched with WordPress with plugins such as Yoast SEO to improve search engine optimization and Askimet Anti-Spam for security.\n\n\nThe site is optimized to be ADA friendly, as it was built for Livable Wage Jobs 501(c)(3) advocates for and builds pathways and projects that support youth governance and underrepresented student and learner access to high-wage, high-growth careers.",
+      "imagePath": "/uploads/72c1a046-7ee8-4e07-8729-3425c1bc7b6a.gif",
+      "githubUrl": "",
+      "liveUrl": "",
+      "tags": [
+        "Web Development"
+      ],
+      "toolsUsed": [
+        "b9eef6cd-6339-483b-8e62-80f608702a70"
+      ],
+      "date": "2022-07-21T00:00:00.000Z",
+      "featured": true
+    },
+    {
+      "id": "36fa84de-6961-4d10-84ef-16ce7346d454",
+      "title": "BEAP Collection",
+      "description": "Featuring a sleek and responsive design, this custom application designed for a premier automotive gallery provides an intuitive way for the owner to track his cars. \n\nAlong with the client facing UI, this application features a CMS system where the collection's curator can edit various elements of the website on the fly, even through their mobile device. \n\nI currently run DevOps for the application through AWS and their services.",
+      "imagePath": "/uploads/674e474e-d6e8-4b6d-b710-0b0361f7e5c1.webp",
+      "githubUrl": "https://github.com/olefson/BEAP-Collection-2025",
+      "liveUrl": "https://beapcollection.com/",
+      "tags": [
+        "Web Development"
+      ],
+      "toolsUsed": [
+        "1ac6c864-d50f-4357-9204-a97e72aa5c77",
+        "9b05f747-f07e-4772-8389-433ac26eb5d2",
+        "ec450ef6-698e-4bbd-b5ad-3011b1ebe12b",
+        "f4b4bbad-ea85-4e35-bc50-3fff6ecca5ec",
+        "59eb574d-985f-447e-a34a-b470775ba81c",
+        "7f3f0b58-8cc6-4f6f-aa26-7a0928f4fa3e",
+        "1ce89e89-5013-4c3c-ad27-f860fb6cccd2"
+      ],
+      "date": "2025-05-09T00:00:00.000Z",
+      "featured": false
+    },
+    {
+      "id": "5249b7c8-1e3a-41f8-a711-ba4a64c5c841",
+      "title": "Impactis",
+      "description": "During my internship with Impactis Global, an education startup based in India, I served as a Web Developer helping build a scalable platform that connects students with personalized, sponsor-funded scholarships. I led a small team of two developers, delegated tasks, and maintained the company’s Git repository. My work focused on React-based front-end development, UI/UX optimization, payment gateway integration, and SEO strategy to improve visibility and conversion rates. I also contributed to the backend using Firebase and PostgreSQL, optimizing API communication and deployment pipelines via Vercel. This role strengthened my skills in full-stack development, CI/CD, and cross-functional teamwork within a fast-paced startup environment.",
+      "imagePath": "/uploads/ac4e6054-4644-406c-9545-8c5c40c02930.webp",
+      "githubUrl": "",
+      "liveUrl": "https://www.impactisglobal.org/",
+      "tags": [
+        "Web Development"
+      ],
+      "toolsUsed": [
+        "7f3f0b58-8cc6-4f6f-aa26-7a0928f4fa3e",
+        "de7a23e8-ef1b-4f3e-b86a-57eabdab2849",
+        "44764c9c-e681-4221-9733-3db61cae0581",
+        "b003e938-c500-43a5-8fda-e43b9865887d",
+        "1ce89e89-5013-4c3c-ad27-f860fb6cccd2",
+        "bb26c9ec-fa7e-48a1-a8fd-81b425726932",
+        "f4b4bbad-ea85-4e35-bc50-3fff6ecca5ec"
+      ],
+      "date": "2025-04-15T00:00:00.000Z",
+      "featured": false
+    }
+  ],
+  "jobs": [],
+  "education": []
+}

@@ -54,7 +54,6 @@ model Job {
   responsibilities String[]
   technologies     String[]
   achievements     String[]
-  createdBy        String
   updatedAt        DateTime  @updatedAt
 }
 
@@ -69,8 +68,35 @@ model Education {
   endDate     DateTime?
   gpa         Float?
   courses     String[]
-  createdBy   String
   updatedAt   DateTime   @updatedAt
+}
+
+model Diary {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
+  date      DateTime
+  tags      String[]
+  mood      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Conversation {
+  id        String   @id @default(uuid())
+  sessionId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  messages  Message[]
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  role           String
+  content        String
+  timestamp      DateTime     @default(now())
 }
 
 

@@ -13,6 +13,10 @@ import {
 } from './validation/schemas';
 import { upload, getPublicUrl } from './utils/fileUpload';
 import toolsRoutes from './routes/tools.routes';
+import jobRoutes from './routes/job.routes';
+import educationRoutes from './routes/education.routes';
+import diaryRoutes from './routes/diary.routes';
+import chatRoutes from './routes/chat.routes';
 
 // Import repositories and services
 import { ToolRepository } from './data/repositories/ToolRepository';
@@ -60,6 +64,8 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads'), {
 app.use(cors({
     origin: [
         'http://localhost:3000',
+        'https://jasonolefson.com',
+        'https://www.jasonolefson.com',
         'https://scholarship-frontend-git-main-impactisglobals-projects.vercel.app',
         'https://scholarship-frontend.vercel.app',
         'https://impactisglobal.org',
@@ -114,6 +120,14 @@ console.log('Server file loaded!')
 
 // Register the new tools router
 app.use('/api/tools', toolsRoutes);
+
+// Register job and education routes
+app.use('/api/jobs', jobRoutes);
+app.use('/api/education', educationRoutes);
+app.use('/api/admin/diary', diaryRoutes);
+
+// Register chat route (public endpoint)
+app.use('/api/chat', chatRoutes);
 
 // Image upload endpoint
 app.post('/api/upload', upload.single('image'), (req, res) => {
