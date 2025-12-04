@@ -29,3 +29,5 @@ export class EducationService extends BaseService<Education> {
 
 
 
+
+
